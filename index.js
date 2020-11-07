@@ -81,5 +81,39 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
   console.log(board);
 }
 
-console.log(board);
-movePiece(2, 2, 0, 0);
+//movePiece(2, 2, 0, 0);
+
+
+
+var renderBoard = function(){
+  for (var i = 0; i < board.length; i++) {
+    for (var j = 0; j < board[0].length; j++){
+      const item = document.createElement('div');
+      item.className = "sq";
+      item.id = "sq" + i + j;
+      item.innerHTML = board[i][j];
+      document.getElementById("grid-container").appendChild(item);
+    }
+
+/*       const item = document.createElement('div');
+      item.className = "selection-item";
+      item.id = "menu-item-" + key;
+
+      item.innerHTML = `
+      <img src = ${value.url} class = "selection-img" width = "25px" alt = ${key}>
+      `
+      item.addEventListener("click", function(){
+          iconInterface();
+
+          iconInterface(false);
+          textInterface(true);
+          store.markerType = value;
+
+      })
+
+      document.getElementById("grid-container").appendChild(item); */
+
+  }
+}
+
+renderBoard();

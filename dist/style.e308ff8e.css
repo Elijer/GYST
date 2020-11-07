@@ -1,0 +1,25 @@
+#grid-container {
+    margin-top: 10%;
+    margin: 1%;
+    width: 100%;
+    height: 77%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
+    /* column-gap: 3%; */
+}
+
+.sq {
+    padding: 20px;
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background: lightblue;
+}
+  
+.sq:hover {
+    background: rgb(171, 166, 173);
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

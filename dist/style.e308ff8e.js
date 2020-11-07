@@ -117,99 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
-var E = "Empty",
-    B = "Black",
-    W = "White",
-    N = "Neutral";
-var player1 = {
-  color: B
-};
-var board = [[E, E, E, E, E], [E, B, W, B, E], [E, W, N, W, E], [E, B, W, B, E], [E, E, E, E, E]];
-var options = [];
+})({"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-var movePiece = function movePiece(pieceRow, pieceCol, destRow, destCol) {
-  var position = board[pieceRow][pieceCol];
-  var destination = board[destRow][destCol];
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-  if (position) {
-    if (position === player1.color || position === N) {
-      if (destination === E) {
-        var verticalRange = destRow - pieceRow;
+  return bundleURL;
+}
 
-        if (Math.abs(verticalRange) > 2) {
-          console.log("That destination is out of range");
-        } else {
-          var horizontalRange = destCol - pieceCol;
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-          if (Math.abs(horizontalRange) > 2) {
-            console.log("That destination is out of range");
-          } else {
-            if (Math.abs(horizontalRange) === 1) {
-              console.log("one square away. You can move here!");
-              board[destRow][destCol] = position;
-              board[pieceRow][pieceCol] = E;
-            } else {
-              var h = horizontalRange / 2;
-              var v = verticalRange / 2;
-              var intermediateSquare = board[pieceRow + h][pieceCol + v];
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
 
-              if (intermediateSquare === B || intermediateSquare === N || intermediateSquare === W) {
-                console.log("You may move here!");
-                board[destRow][destCol] = position;
-                board[pieceRow][pieceCol] = E;
-              } else {
-                console.log("You cannot move here because the square in between is empty.");
-              }
-            }
-          }
-        }
-      } else {
-        console.log("You can't move to that destination because there is a piece already there.");
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
       }
-    } else {
-      console.log("That is not a piece you can move");
     }
-  } else {
-    console.log("piece is not defined");
-  }
 
-  console.log(board);
-}; //movePiece(2, 2, 0, 0);
+    cssTimeout = null;
+  }, 50);
+}
 
+module.exports = reloadCSS;
+},{"./bundle-url":"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-var renderBoard = function renderBoard() {
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[0].length; j++) {
-      var item = document.createElement('div');
-      item.className = "sq";
-      item.id = "sq" + i + j;
-      item.innerHTML = board[i][j];
-      document.getElementById("grid-container").appendChild(item);
-    }
-    /*       const item = document.createElement('div');
-          item.className = "selection-item";
-          item.id = "menu-item-" + key;
-    
-          item.innerHTML = `
-          <img src = ${value.url} class = "selection-img" width = "25px" alt = ${key}>
-          `
-          item.addEventListener("click", function(){
-              iconInterface();
-    
-              iconInterface(false);
-              textInterface(true);
-              store.markerType = value;
-    
-          })
-    
-          document.getElementById("grid-container").appendChild(item); */
-
-  }
-};
-
-renderBoard();
-},{}],"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -413,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/GYST.e31bb0bc.js.map
+},{}]},{},["../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/style.e308ff8e.js.map
