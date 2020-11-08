@@ -1,8 +1,8 @@
 var
-E = "Empty",
-B = "Black",
-W = "White",
-N = "Neutral"
+E = "",
+B = "X",
+W = "O",
+N = "N"
 
 var player1 = {
 	color: B

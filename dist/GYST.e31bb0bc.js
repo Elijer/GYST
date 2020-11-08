@@ -118,10 +118,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
-var E = "Empty",
-    B = "Black",
-    W = "White",
-    N = "Neutral";
+var E = "",
+    B = "X",
+    W = "O",
+    N = "N";
 var player1 = {
   color: B
 };
