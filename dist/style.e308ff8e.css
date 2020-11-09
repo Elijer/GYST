@@ -1,37 +1,42 @@
-#body {
-    font-family: 'Ubuntu', sans-serif;
+html {
+    background: rgb(80, 82, 98);
 }
 
 
+#body {
+    font-family: 'Ubuntu', sans-serif;
+    background: rgb(80, 82, 98);
+}
+
 #grid-container {
-    margin-top: 50px;
+
+    margin-top: 8%;
     padding-left: 25%;
     padding-right: 25%;
     width: 50%;
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
-    /* column-gap: 3%; */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+
 }
 
 .sq {
 
-    /*  
-    border-left: 4px solid rgb(80, 82, 98);
-    border-top: 4px solid rgb(80, 82, 98);
-    */
     font-family: 'Ubuntu', sans-serif;
     color: white;
     padding: 25px 20px 25px;
     font-size: 50px;
     text-align: center;
     background: rgb(175, 177, 198);
+    text-shadow: 2px 2px #ff0000;
+    box-shadow: 4px 4px 5px rgb(42, 43, 50);
 
 }
   
 .sq:hover {
+
     background: rgb(80, 82, 98);
+
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
