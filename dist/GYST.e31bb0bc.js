@@ -149,7 +149,8 @@ var movePiece = function movePiece(pieceRow, pieceCol, destRow, destCol) {
           } else {
             var h = horizontalRange / 2;
             var v = verticalRange / 2;
-            var intermediateSquare = board[pieceRow + h][pieceCol + v];
+            var intermediateSquare = board[pieceRow + v][pieceCol + h];
+            console.log(intermediateSquare);
 
             if (intermediateSquare != E) {
               console.log("You may move here!");
