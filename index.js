@@ -62,7 +62,7 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
               } else {
                 console.log("You cannot move here because the square in between is empty.")
               }
-              
+
             }
 
           }
@@ -76,7 +76,7 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
     	console.log("That is not a piece you can move");
     }
   } else {
-    console.log("piece is not defined");
+    console.log("piece is not defined at " + pieceRow + " " + pieceCol);
   }
 }
 
@@ -99,7 +99,7 @@ var renderBoard = function(){
 
       item.addEventListener("click", function(){
 
-        item.style.background = "rgb(80, 82, 98)";
+        item.style.background = "orange";
 
         if (!selection){
           console.log(board);

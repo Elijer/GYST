@@ -172,7 +172,7 @@ var movePiece = function movePiece(pieceRow, pieceCol, destRow, destCol) {
       console.log("That is not a piece you can move");
     }
   } else {
-    console.log("piece is not defined");
+    console.log("piece is not defined at " + pieceRow + " " + pieceCol);
   }
 }; //movePiece(2, 2, 0, 0);
 
@@ -187,7 +187,7 @@ var renderBoard = function renderBoard() {
       var row = i;
       var col = j;
       item.addEventListener("click", function () {
-        item.style.background = "rgb(80, 82, 98)";
+        item.style.background = "orange";
 
         if (!selection) {
           console.log(board);
