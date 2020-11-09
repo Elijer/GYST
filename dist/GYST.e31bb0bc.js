@@ -206,8 +206,42 @@ var renderBoard = function renderBoard() {
       _loop();
     }
   }
+
+  winner();
 };
 
+var winner = function winner() {
+  var current;
+  var neighbor;
+  var inc;
+
+  for (var i = 0; i < board.length; i++) {
+    for (var j = 0; j < board[0].length; j++) {
+      current = board[i][j];
+
+      if (current === player1.color || current === N) {
+        for (var n = 0; n < 10; n++) {
+          inc = dir[n];
+          neighbor = board[(i + inc[0], j + inc[1])];
+
+          if (neighbor === player1.color || neighbor === N) {
+            var next = board[(i + inc[0] + inc[0], j + inc[1] + inc[1])];
+
+            if (next === player1.color || next === N) {
+              var nextnext = board[(i + inc[0] + inc[0] + inc[0], j + inc[1] + inc[1] + inc[1])];
+
+              if (nextnext === player1.color || nextnext === N) {
+                say("You won!!");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
+var dir = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 0], [0, 1], [1, -1], [1, 0], [1, 1]];
 renderBoard();
 
 var say = function say(t) {
