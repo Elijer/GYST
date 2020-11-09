@@ -36,12 +36,12 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
 
         if (Math.abs(verticalRange) > 2 || Math.abs(horizontalRange) > 2){
 
-          console.log("That destination is out of range");
+          say("That destination is out of range");
 
         } else {
 
           if (Math.abs(horizontalRange) <= 1 && Math.abs(verticalRange) <= 1){
-            console.log("one square away. You can move here!");
+            say("one square away. You can move here!");
               board[destRow][destCol] = position
               board[pieceRow][pieceCol] = E;
 
@@ -51,7 +51,7 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
             var v = verticalRange / 2;
 
             if (h % 1 != 0 || v % 1 != 0){
-              console.log("you can only skip other pieces on a true diagonal")
+              say("you can only skip other pieces on a true diagonal")
             } else {
               var intermediateSquare = board[pieceRow + v][pieceCol + h];
 
@@ -60,7 +60,7 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
                   board[destRow][destCol] = position
                   board[pieceRow][pieceCol] = E;
               } else {
-                console.log("You cannot move here because the square in between is empty.")
+                say("You cannot move here because the square in between is empty.")
               }
 
             }
@@ -70,13 +70,13 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
         }
         
 			} else {
-      	console.log("You can't move to that destination because there is a piece already there.")
+      	say("You can't move to that destination because there is a piece already there.")
       }
     } else {
-    	console.log("That is not a piece you can move");
+    	say("That is not a piece you can move");
     }
   } else {
-    console.log("piece is not defined at " + pieceRow + " " + pieceCol);
+    say("piece is not defined at " + pieceRow + " " + pieceCol);
   }
 }
 
@@ -121,3 +121,8 @@ var renderBoard = function(){
 }
 
 renderBoard();
+
+var say = function(t){
+  var target = document.getElementById("message-content");
+  target.innerHTML = t;
+}

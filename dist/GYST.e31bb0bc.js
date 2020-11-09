@@ -140,10 +140,10 @@ var movePiece = function movePiece(pieceRow, pieceCol, destRow, destCol) {
         var horizontalRange = destCol - pieceCol;
 
         if (Math.abs(verticalRange) > 2 || Math.abs(horizontalRange) > 2) {
-          console.log("That destination is out of range");
+          say("That destination is out of range");
         } else {
           if (Math.abs(horizontalRange) <= 1 && Math.abs(verticalRange) <= 1) {
-            console.log("one square away. You can move here!");
+            say("one square away. You can move here!");
             board[destRow][destCol] = position;
             board[pieceRow][pieceCol] = E;
           } else {
@@ -151,7 +151,7 @@ var movePiece = function movePiece(pieceRow, pieceCol, destRow, destCol) {
             var v = verticalRange / 2;
 
             if (h % 1 != 0 || v % 1 != 0) {
-              console.log("you can only skip other pieces on a true diagonal");
+              say("you can only skip other pieces on a true diagonal");
             } else {
               var intermediateSquare = board[pieceRow + v][pieceCol + h];
 
@@ -160,19 +160,19 @@ var movePiece = function movePiece(pieceRow, pieceCol, destRow, destCol) {
                 board[destRow][destCol] = position;
                 board[pieceRow][pieceCol] = E;
               } else {
-                console.log("You cannot move here because the square in between is empty.");
+                say("You cannot move here because the square in between is empty.");
               }
             }
           }
         }
       } else {
-        console.log("You can't move to that destination because there is a piece already there.");
+        say("You can't move to that destination because there is a piece already there.");
       }
     } else {
-      console.log("That is not a piece you can move");
+      say("That is not a piece you can move");
     }
   } else {
-    console.log("piece is not defined at " + pieceRow + " " + pieceCol);
+    say("piece is not defined at " + pieceRow + " " + pieceCol);
   }
 }; //movePiece(2, 2, 0, 0);
 
@@ -209,6 +209,11 @@ var renderBoard = function renderBoard() {
 };
 
 renderBoard();
+
+var say = function say(t) {
+  var target = document.getElementById("message-content");
+  target.innerHTML = t;
+};
 },{}],"../../../../.npm-global/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -237,7 +242,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50337" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57558" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
