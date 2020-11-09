@@ -41,7 +41,7 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
         } else {
 
           if (Math.abs(horizontalRange) <= 1 && Math.abs(verticalRange) <= 1){
-            say("one square away. You can move here!");
+            say("You moved one square. Nice!");
               board[destRow][destCol] = position
               board[pieceRow][pieceCol] = E;
 
@@ -56,11 +56,11 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
               var intermediateSquare = board[pieceRow + v][pieceCol + h];
 
               if (intermediateSquare != E ){
-                  console.log("Two squares away. You may move here! (skip)");
+                  say("You skipped over another piece.");
                   board[destRow][destCol] = position
                   board[pieceRow][pieceCol] = E;
               } else {
-                say("You cannot move here because the square in between is empty.")
+                say("That destination is too far away.")
               }
 
             }
@@ -70,10 +70,10 @@ var movePiece = function(pieceRow, pieceCol, destRow, destCol){
         }
         
 			} else {
-      	say("You can't move to that destination because there is a piece already there.")
+      	say("Oops! A piece is already there.")
       }
     } else {
-    	say("That is not a piece you can move");
+    	say("Hey...piece doesn't belong to you!");
     }
   } else {
     say("piece is not defined at " + pieceRow + " " + pieceCol);
