@@ -122,41 +122,49 @@ var renderBoard = function(){
 }
 
 var winner = function(){
+  horizontalWin();
+  verticalWin();
+}
 
-  var current;
-  var neighbor;
-  var inc;
+function verticalWin(){
+  var count = 0;
 
-  for (var i = 0; i < board.length; i++) {
-    for (var j = 0; j < board[0].length; j++){
+  for (var i = 0; i < 5; i++){
+    for (var j = 0; j < 5; j++){
 
-      current = board[i][j];
-
-      if (current === player1.color || current === N){
-        for (var n = 0; n < 10; n ++){
-
-          inc = dir[n];
-
-          neighbor = board[i + inc[0], j + inc[1]];
-
-          if (neighbor === player1.color || neighbor === N){
-
-            var next = board[i + inc[0] + inc[0],  j + inc[1] + inc[1]]
-
-            if (next === player1.color || next === N){
-
-              var nextnext = board[i + inc[0] + inc[0] + inc[0],  j + inc[1] + inc[1] + inc[1]]
-
-              if (nextnext === player1.color || nextnext === N){
-
-                say("You won!!")
-
-              }
-            }
-          }
-        }
+      if (board[j][i] === B){
+        count++;
+      } else {
+        count = 0;
       }
+
+      if (count === 4){
+        alert("X's have won!!!");
+      }
+
     }
+
+  }
+}
+
+function horizontalWin(){
+  var count = 0;
+
+  for (var i = 0; i < 5; i++){
+    for (var j = 0; j < 5; j++){
+
+      if (board[i][j] === B){
+        count++;
+      } else {
+        count = 0;
+      }
+
+      if (count === 4){
+        alert("X's have won!!!");
+      }
+
+    }
+
   }
 }
 
