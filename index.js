@@ -11,9 +11,9 @@ var player1 = {
 var board = [
 
   [ E, E, E, E, E ],
-  [ E, B, W, B, E ],
-  [ E, W, N, W, E ],
-  [ E, B, W, B, E ],
+  [ E, B, E, B, E ],
+  [ E, E, N, E, E ],
+  [ E, B, E, B, E ],
   [ E, E, E, E, E ]
 
 ];
@@ -124,12 +124,91 @@ var renderBoard = function(){
 var winner = function(){
   horizontalWin();
   verticalWin();
+  descendingWin();
+  ascendingWin();
+}
+
+function ascendingWin(){
+
+  starts = [
+    [1, 4],
+    [0, 4],
+    [1, 3],
+    [0, 3]
+  ]
+
+  var count = 0;
+
+  for (var i = 0; i < starts.length; i++){
+    for (var j = 0; j < 4; j++){
+      if (board
+
+        [starts[i][0]]
+        [starts[i][1]]
+
+         === B){
+
+        count++;
+        
+      } else {
+        count = 0;
+      }
+
+      if (count === 4){
+        alert("You won!!")
+      } else {
+        starts[i][0]++;
+        starts[i][1]--;
+      }
+
+    }
+  }
+
+}
+
+function descendingWin(){
+
+  starts = [
+    [1, 0],
+    [0, 0],
+    [1, 1],
+    [0, 1]
+  ]
+
+  var count = 0;
+
+  for (var i = 0; i < starts.length; i++){
+    for (var j = 0; j < 4; j++){
+      if (board
+
+        [starts[i][0]]
+        [starts[i][1]]
+
+         === B){
+
+        count++;
+        
+      } else {
+        count = 0;
+      }
+
+      if (count === 4){
+        alert("You won!!")
+      } else {
+        starts[i][0]++;
+        starts[i][1]++;
+      }
+
+    }
+  }
+
 }
 
 function verticalWin(){
   var count = 0;
 
   for (var i = 0; i < 5; i++){
+    // count = 0 // It seemed to be working anyways, but I should add this right?
     for (var j = 0; j < 5; j++){
 
       if (board[j][i] === B){
