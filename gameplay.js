@@ -13,9 +13,9 @@ export function gameplay(){
     var board = [
     
       [ E, E, E, E, E ],
-      [ E, B, E, B, E ],
-      [ E, E, N, E, E ],
-      [ E, B, E, B, E ],
+      [ E, B, W, B, E ],
+      [ E, W, N, W, E ],
+      [ E, B, W, B, E ],
       [ E, E, E, E, E ]
     
     ];
