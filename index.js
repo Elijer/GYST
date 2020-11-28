@@ -128,7 +128,7 @@ var winner = function(){
   ascendingWin(B);
 }
 
-function ascendingWin(){
+function ascendingWin(target){
 
   starts = [
     [1, 4],
@@ -146,7 +146,7 @@ function ascendingWin(){
         [starts[i][0]]
         [starts[i][1]]
 
-         === B){
+         === target){
 
         count++;
         
@@ -166,7 +166,7 @@ function ascendingWin(){
 
 }
 
-function descendingWin(){
+function descendingWin(target){
 
   starts = [
     [1, 0],
@@ -184,7 +184,7 @@ function descendingWin(){
         [starts[i][0]]
         [starts[i][1]]
 
-         === B){
+         === target){
 
         count++;
         
@@ -203,28 +203,6 @@ function descendingWin(){
   }
 
 }
-
-/* function verticalWin(){
-  var count = 0;
-
-  for (var i = 0; i < 5; i++){
-    // count = 0 // It seemed to be working anyways, but I should add this right?
-    for (var j = 0; j < 5; j++){
-
-      if (board[j][i] === B){
-        count++;
-      } else {
-        count = 0;
-      }
-
-      if (count === 4){
-        alert("X's have won!!!");
-      }
-
-    }
-
-  }
-} */
 
 function straightWin(target, horizontal){
   var count = 0;
