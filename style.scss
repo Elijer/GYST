@@ -1,11 +1,18 @@
+$bg: #505262;
+$sq: #afb1c6;
+$type-shadow: #ff0000;
+
+$message-text: $sq;
+$message-shadow: #875f5f;
+
 html {
-    background: rgb(80, 82, 98);
+    background: $bg;
 }
 
 
 #body {
     font-family: 'Ubuntu', sans-serif;
-    background: rgb(80, 82, 98);
+    background: $bg;
 }
 
 #grid-container{
@@ -27,18 +34,18 @@ html {
     padding: 25px 20px 25px;
     font-size: 50px;
     text-align: center;
-    background: rgb(175, 177, 198);
+    background: $sq;
     box-shadow: 4px 4px 5px rgb(42, 43, 50);
 
 }
 
 .sq {
-    text-shadow: 2px 2px #ff0000;
+    text-shadow: 2px 2px $type-shadow;
 }
 
 #message {
-    color: rgb(175, 177, 198);
-    text-shadow: 2px 2px #875f5f;
+    color: $message-text;
+    text-shadow: 2px 2px $message-shadow;
     margin-top: 3%;
     margin-left: 24%;
     width: 50%;
@@ -50,11 +57,10 @@ html {
 #message-content {
     font-size: 35px;
     position: absolute;
-    text-shadow: orange;
 }
   
 .sq:hover {
 
-    background: rgb(80, 82, 98);
+    background: $bg;
 
 }
