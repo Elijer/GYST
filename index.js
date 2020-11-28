@@ -122,10 +122,10 @@ var renderBoard = function(){
 }
 
 var winner = function(){
-  horizontalWin();
-  verticalWin();
-  descendingWin();
-  ascendingWin();
+  straightWin(B, true);
+  straightWin(B, false);
+  descendingWin(B);
+  ascendingWin(B);
 }
 
 function ascendingWin(){
@@ -204,7 +204,7 @@ function descendingWin(){
 
 }
 
-function verticalWin(){
+/* function verticalWin(){
   var count = 0;
 
   for (var i = 0; i < 5; i++){
@@ -224,18 +224,26 @@ function verticalWin(){
     }
 
   }
-}
+} */
 
-function horizontalWin(){
+function straightWin(target, horizontal){
   var count = 0;
 
   for (var i = 0; i < 5; i++){
     for (var j = 0; j < 5; j++){
 
-      if (board[i][j] === B){
-        count++;
+      if (horizontal === true){
+        if (board[j][i] === target){
+          count++;
+        } else {
+          count = 0;
+        }
       } else {
-        count = 0;
+        if (board[i][j] === target){
+          count++;
+        } else {
+          count = 0;
+        }
       }
 
       if (count === 4){
