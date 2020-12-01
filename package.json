@@ -4,7 +4,8 @@
   "description": "",
   "main": "gyst.js",
   "scripts": {
-    "test": "parcel index.html"
+    "test": "parcel index.html",
+    "port": "lsof -n -i4TCP:8080 | grep LISTEN"
   },
   "keywords": [],
   "author": "",

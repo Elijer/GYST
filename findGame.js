@@ -1,11 +1,19 @@
 export var findGame = function(db){
     Window.findGame = function(){
 
-        db.collection("pending-matches").orderBy("createdAt").limit(1).where("player2", "==", null)
-        .get()
+        //what database am I even using...?
+
+        //where
+/*         db.collection("pending-matches")
+        .get(function(data){
+        })
         .then(function(querySnapshot) {
 
             console.log(querySnapshot);
+            if (querySnapshot.empty){
+                console.log("moose")
+            }
+            
 
             querySnapshot.forEach(function(doc) {
                 // doc.data() is never undefined for query doc snapshots
@@ -15,7 +23,7 @@ export var findGame = function(db){
         })
         .catch(function(error) {
             console.log("Error getting documents: ", error);
-        });
+        }); */
 
 
 
